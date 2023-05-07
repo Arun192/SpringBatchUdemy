@@ -1,0 +1,25 @@
+package in.arun.batch.writer;
+
+import java.util.List;
+
+import org.springframework.batch.item.ItemWriter;
+import org.springframework.stereotype.Component;
+
+import in.arun.batch.model.StudentJdbc;
+import in.arun.batch.model.StudentJson;
+import in.arun.batch.model.StudentReponse;
+import in.arun.batch.model.StudentXml;
+
+@Component
+public class FirstItemWriter implements ItemWriter<StudentReponse> {
+
+	@Override
+	public void write(List<? extends StudentReponse> items) throws Exception {
+
+		System.out.println("Inside Item Writer");
+
+		items.stream().forEach(System.out::println);
+
+	}
+
+}

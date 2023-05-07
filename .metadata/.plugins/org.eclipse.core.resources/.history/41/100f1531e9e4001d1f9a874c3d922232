@@ -1,0 +1,52 @@
+package in.arun.batch.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import in.arun.batch.model.StudentReponse;
+import in.arun.batch.model.StudentResponse;
+
+@Service
+public class StudentResponseService {
+	
+	List<StudentResponse> list;
+	
+	public List<StudentResponse> restCallToGetStudents(){
+		
+		RestTemplate restTemplate = new RestTemplate();
+		StudentResponse[] studentReponseArray = restTemplate.getForObject("http://localhost:8081/api/v1/students", StudentResponse[].class);
+		
+		list = new ArrayList<StudentResponse>();
+		
+		for (StudentResponse sr : studentReponseArray) {
+			list.add(sr);
+		}
+		
+		return list;
+		
+		
+	}
+
+	public StudentReponse getStudent(long id , String name) {
+		
+		System.out.println("id = "+id +" and name "+name);
+		
+		if (list == null) {
+			restCallToGetStudents();
+		}
+		if (list != null && !list.isEmpty()) {
+			return list.remove(0);
+		}
+		
+		return null;
+		
+	}
+	
+	public StudentResponse restCallToCreateStudent() {
+		RestTemplate restTemplate  =new RestTemplate();
+		restTemplate.postForObject(null, restTemplate, StudentResponse.class);
+	}
+}

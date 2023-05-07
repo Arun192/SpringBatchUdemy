@@ -1,0 +1,19 @@
+package in.arun.batch.processor;
+
+import org.springframework.batch.item.ItemProcessor;
+import org.springframework.stereotype.Component;
+
+import in.arun.batch.model.StudentJdbc;
+
+@Component
+public class FirstItemProcessor implements ItemProcessor<StudentJdbc, StudentJdbc> {
+
+	@Override
+	public StudentJdbc process(StudentJdbc studentJdbc) throws Exception {
+
+		System.out.println("Inside Item Processor");
+
+		return studentJdbc;
+	}
+
+}

@@ -1,0 +1,16 @@
+package in.arun.batch.model;
+
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+import lombok.Data;
+
+
+@Data
+@XmlRootElement(name="students")
+public class StudentXml {
+	private int id;
+	private String firstName;
+	private String lastName;
+	private String email;
+}

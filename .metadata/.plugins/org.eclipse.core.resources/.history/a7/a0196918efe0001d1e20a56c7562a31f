@@ -1,0 +1,7 @@
+package in.arun.batch.request;
+
+public class JobParamRequest {
+
+	private String paramKey;
+	private String paramValue;
+}

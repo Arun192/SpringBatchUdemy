@@ -1,0 +1,50 @@
+package in.arun.batch;
+
+import org.springframework.batch.core.Job;
+import org.springframework.batch.core.JobExecution;
+import org.springframework.batch.core.JobParameters;
+import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
+import org.springframework.batch.core.launch.JobLauncher;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
+
+import in.arun.batch.config.SampleJob;
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
+@EnableBatchProcessing
+@SpringBootApplication
+@EnableAsync
+@Import(SampleJob.class)
+//@EnableScheduling 
+public class BatchProcessApplication {
+	public static void main(String[] args) {
+//		try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(FirstJob.class)) {
+//			FirstJob firstJob = context.getBean(FirstJob.class);
+//			Job job = firstJob.firstJob();
+//			JobLauncher jobLauncher = context.getBean(JobLauncher.class);
+//			JobExecution jobExecution = jobLauncher.run(job, new JobParameters());
+//			System.out.println("Job execution status: " + jobExecution.getStatus());
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		
+		  ConfigurableApplicationContext context = SpringApplication.run(BatchProcessApplication.class, args);
+//	        JobLauncher jobLauncher = context.getBean(JobLauncher.class);
+//	        Job job = context.getBean(SampleJob.class).firstJob();
+//	        try {
+//	            JobExecution jobExecution = jobLauncher.run(job, new JobParameters());
+//	           log.info("Job execution status: " + jobExecution.getStatus());
+//	           System.out.println("Job execution status: " + jobExecution.getStatus());
+//	        } catch (Exception e) {
+//	            e.printStackTrace();
+//	        } finally {
+//	            context.close();
+//	        }
+//	    }
+//	 
+	}
+}

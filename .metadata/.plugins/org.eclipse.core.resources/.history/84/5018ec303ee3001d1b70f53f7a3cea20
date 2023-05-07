@@ -1,0 +1,16 @@
+package in.arun.batch.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+
+public class StudentReponse {
+
+	private long id;
+	private String firstName;
+	private String lastName;
+	private String email;
+}

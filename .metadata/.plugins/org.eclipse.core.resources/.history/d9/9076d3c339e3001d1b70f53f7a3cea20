@@ -1,0 +1,12 @@
+package in.arun.model;
+
+import lombok.Data;
+
+@Data
+public class StudentReponse {
+
+	private int id;
+	private String firstName;
+	private String lastName;
+	private String email;
+}
